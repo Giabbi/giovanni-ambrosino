@@ -1,13 +1,21 @@
+<!--  achievements.html  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>First‑in‑World Achievements – Prof. Giovanni Ambrosino MD</title>
-  <link rel="stylesheet" href="assets/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Achievements – Prof. Giovanni Ambrosino MD</title>
+
+  <!-- core styles already in the site -->
+  <link rel="stylesheet" href="assets/style.css"/>
+
+  <!-- page‑specific overrides -->
+  <link rel="stylesheet" href="assets/achievements.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet"/>
 </head>
+
 <body>
+  <!-- ▸ NAV  ------------------------------------------------------------- -->
   <header class="navbar">
     <div class="container nav-flex">
       <a class="brand" href="index.html">G. Ambrosino MD</a>
@@ -15,31 +23,131 @@
       <nav id="nav-links">
         <a href="about.html">About</a>
         <a href="research.html">Research</a>
-        <a class="active" href="achievements.html">First‑in‑World</a>
+        <a class="active" href="achievements.html">Achievements</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="container page">
-    <h1>Ground‑breaking Milestones</h1>
-    <ul class="milestones">
-      <li><strong>Hepatic cell graft</strong> in a child with Crigler–Najjar II (2001).</li>
-      <li><strong>Bioartificial organ</strong> support in fulminant hepatitis – patient bridged to transplant.</li>
-      <li><strong>Robotic stereotactic radiosurgery</strong> for inoperable liver cancer (2004).</li>
-      <li><strong>CiberKnife‑guided treatment</strong> of metastatic liver tumor using real‑time respiratory tracking.</li>
-    </ul>
+  <!-- ▸ HERO  ------------------------------------------------------------ -->
+  <section class="hero hero-achievements">
+    <div class="container hero-inner">
+      <h1 class="hero-headline">40 Years of Firsts</h1>
+      <p class="hero-tag">Trailblazing procedures, patented technologies, world‑class awards.</p>
+    </div>
+  </section>
 
-    <h2>Awards & Honors</h2>
-    <ul>
-      <li>Special Award, Harvard Medical School (1985)</li>
-      <li>Who’s Who in Medicine & Healthcare (2004‑05)</li>
-      <li>EB‑1 US Green Card for Extraordinary Ability (2021)</li>
-      <li>Padre Pio International Award (2015)</li>
-    </ul>
+  <main class="container page">
+
+    <!-- ▸ WORLD FIRSTS  -------------------------------------------------- -->
+    <section aria-label="World firsts" class="firsts">
+      <h2 class="section-title">Pioneering World Firsts</h2>
+
+      <ul class="firsts-timeline">
+        <!-- 01 -->
+        <li class="firsts-item">
+          <div class="firsts-dot"></div>
+          <article class="firsts-card">
+            <h3>First Gene‑Graft Hepatocyte Transplant</h3>
+            <p class="firsts-meta">Crigler–Najjar II (child) · Padua · 2001</p>
+          </article>
+        </li>
+
+        <!-- 02 -->
+        <li class="firsts-item">
+          <div class="firsts-dot"></div>
+          <article class="firsts-card">
+            <h3>First Bio‑artificial Liver Bridge to Transplant</h3>
+            <p class="firsts-meta">Vicenza · 1998 &nbsp;–&nbsp;Patient survived acute liver failure</p>
+          </article>
+        </li>
+
+        <!-- 03 -->
+        <li class="firsts-item">
+          <div class="firsts-dot"></div>
+          <article class="firsts-card">
+            <h3>First Robotic Stereotactic Radiosurgery for Liver Cancer</h3>
+            <p class="firsts-meta">Synchrony‑guided CyberKnife · 2004</p>
+          </article>
+        </li>
+
+        <!-- 04 -->
+        <li class="firsts-item">
+          <div class="firsts-dot"></div>
+          <article class="firsts-card">
+            <h3>First Domino Liver Transplant in Italy</h3>
+            <p class="firsts-meta">Both recipients thriving 20+ years later</p>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ▸ SIGNATURE INNOVATIONS  ---------------------------------------- -->
+    <section>
+      <h2 class="section-title">Signature Innovations</h2>
+      <ul class="milestones innovations">
+        <li><strong>ALEX™ bio‑artificial liver</strong> &nbsp;–&nbsp; patented autologous biomatrix technology.</li>
+        <li><strong>Synchrony® respiratory tracking</strong> &nbsp;–&nbsp; real‑time robotic radiosurgery of moving tumours.</li>
+        <li><strong>PEQUOL</strong> &nbsp;–&nbsp; first prognostic quality‑of‑life index for transplant recipients.</li>
+        <li>Microwave ablation protocols now standard for pancreatic &amp; adrenal tumours.</li>
+      </ul>
+    </section>
+
+    <!-- ▸ AWARDS  -------------------------------------------------------- -->
+    <section class="awards">
+      <h2 class="section-title">Awards &amp; Distinctions</h2>
+
+      <div class="award-flex">
+        <!-- 1985 -->
+        <article class="award-card">
+          <div class="award-year">1985</div>
+          <h3>Harvard Medical School<br><span>Special Research Award</span></h3>
+        </article>
+
+        <!-- 1999 -->
+        <article class="award-card">
+          <div class="award-year">1999</div>
+          <h3>Veneto Region<br><span>Grants for Bio‑artificial Liver &amp; PEQUOL</span></h3>
+        </article>
+
+        <!-- 2002 -->
+        <article class="award-card">
+          <div class="award-year">2002</div>
+          <h3>International Award<br><span>Hepatocyte Transplantation, Orlando</span></h3>
+        </article>
+
+        <!-- 2005 -->
+        <article class="award-card">
+          <div class="award-year">2005</div>
+          <h3>Knighthood<br><span>Constantinian Order – Merit of Health</span></h3>
+        </article>
+
+        <!-- 2015 -->
+        <article class="award-card">
+          <div class="award-year">2015</div>
+          <h3>Padre Pio International Award</h3>
+        </article>
+
+        <!-- 2016 -->
+        <article class="award-card">
+          <div class="award-year">2016</div>
+          <h3>Hollywood Int’l Film Festival<br><span>Best Screenplay — <em>“Behind the Corner”</em></span></h3>
+        </article>
+
+        <!-- 2021 -->
+        <article class="award-card">
+          <div class="award-year">2021</div>
+          <h3>EB‑1 Green Card<br><span>Extraordinary Ability</span></h3>
+        </article>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer"><div class="container">© <span id="year"></span> Giovanni Ambrosino MD</div></footer>
+  <!-- ▸ FOOTER  --------------------------------------------------------- -->
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Giovanni Ambrosino MD</div>
+  </footer>
+
   <script src="assets/script.js"></script>
 </body>
 </html>
