@@ -71,5 +71,13 @@
   /* Scholar BTN ------------------------------------------- */
   .scholar-link{text-align:center;margin-top:2rem}
   
+  /* Collaboration Logos ----------------------------------- */
+  .collabs{margin-top:2rem}
+  .logo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1.5rem;align-items:center;justify-items:center}
+  .logo-item{text-align:center}
+  .logo-item img{height:60px;max-width:120px;object-fit:contain;filter:grayscale(100%) brightness(80%);transition:var(--transition)}
+  .logo-item img:hover{filter:none;transform:scale(1.05)}
+  .logo-item span{display:block;margin-top:0.5rem;font-size:0.75rem;color:var(--dark)}
+  
   /* Footer ------------------------------------------------- */
   .footer{background:#002752;color:#fff;text-align:center;padding:1rem 0;font-size:0.875rem;margin-top:3rem}
