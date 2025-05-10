@@ -143,4 +143,63 @@
   }
   .award-card h3{font-size:1rem;font-weight:700;color:var(--dark);line-height:1.3}
   .award-card h3 span{font-weight:400;color:#555}
+  /* -------------  CONTACT PAGE OVERRIDES  ----------------------------- */
+
+/* hero */
+.hero-contact{
+    background:url('images/connect.jpg') center/cover fixed no-repeat;
+    color:#fff;
+    padding:5rem 0 6rem;
+    text-align:center;
+  }
+  
+  .contact-page{padding-top:0} /* hero already adds spacing */
+  
+  /* headings */
+  .section-title{margin:2.5rem 0 1.25rem;color:var(--primary);font-weight:800;font-size:1.75rem}
+  
+  /* grid */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:1.5rem;
+    margin-top:1rem;
+  }
+  
+  .contact-card{
+    background:#fff;
+    border-radius:var(--radius);
+    padding:2.25rem 1.5rem 1.75rem;
+    box-shadow:0 2px 6px rgba(0,0,0,.06);
+    text-align:center;
+    transition:transform .25s var(--transition);
+  }
+  
+  .contact-card:hover{transform:translateY(-4px)}
+  
+  .contact-icon{
+    width:60px;height:60px;
+    margin:0 auto 1rem;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--primary);
+    border-radius:50%;
+  }
+  
+  .contact-icon svg{
+    width:30px;height:30px;fill:#fff;
+  }
+  
+  .contact-card h3{
+    font-size:1rem;font-weight:700;margin-bottom:0.25rem;color:var(--dark)
+  }
+  
+  .contact-card p{
+    font-size:0.9rem;
+  }
+  
+  .contact-card a{
+    color:var(--primary);text-decoration:none;word-break:break-all;
+  }
+  
+  .contact-card a:hover{text-decoration:underline}
   

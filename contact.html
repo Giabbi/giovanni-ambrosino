@@ -1,13 +1,21 @@
+<!--  contact.html  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact – Prof. Giovanni Ambrosino MD</title>
-  <link rel="stylesheet" href="assets/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact – Prof. Giovanni Ambrosino MD</title>
+
+  <!-- core styles already used by every page -->
+  <link rel="stylesheet" href="assets/style.css"/>
+
+  <!-- page‑specific overrides -->
+  <link rel="stylesheet" href="assets/contact.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet"/>
 </head>
+
 <body>
+  <!-- ▸ NAV  ----------------------------------------------------------- -->
   <header class="navbar">
     <div class="container nav-flex">
       <a class="brand" href="index.html">G. Ambrosino MD</a>
@@ -21,17 +29,60 @@
     </div>
   </header>
 
-  <main class="container page">
-    <h1>Get in Touch</h1>
-    <p>For academic collaborations, speaking engagements, or consulting inquiries, please reach out via email or phone.</p>
-    <ul class="contact-list">
-      <li>Email: <a href="mailto:ambroliver.transplant@gmail.com">ambroliver.transplant@gmail.com</a></li>
-      <li>Phone (US): +1 (310) 367‑1187</li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/giovanni-ambrosino-md" target="_blank">Profile</a></li>
-    </ul>
+  <!-- ▸ HERO  ---------------------------------------------------------- -->
+  <section class="hero hero-contact">
+    <div class="container hero-inner">
+      <h1 class="hero-headline">Let’s Connect</h1>
+      <p class="hero-tag">
+        Whether you’d like to discuss innovative surgery, joint research, or a keynote address, you’ll receive a response within&nbsp;48 hours.
+      </p>
+    </div>
+  </section>
+
+  <!-- ▸ CONTACT GRID  -------------------------------------------------- -->
+  <main class="container page contact-page">
+    <section>
+      <h2 class="section-title">Reach Prof.&nbsp;Ambrosino Directly</h2>
+
+      <div class="contact-grid">
+        <!-- email -->
+        <article class="contact-card">
+          <div class="contact-icon">
+            <!-- envelope SVG  -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2 .29v10.71c0 .11.09.2.2.2h15.6a.2.2 0 0 0 .2-.2V6.79l-8 4.93a1 1 0 0 1-1.02 0l-8-4.93Zm16.04-1.56H3.96l8.04 4.96 8.04-4.96Z"/></svg>
+          </div>
+          <h3>Email</h3>
+          <p><a href="mailto:ambroliver.transplant@gmail.com">ambroliver.transplant@gmail.com</a></p>
+        </article>
+
+        <!-- phone -->
+        <article class="contact-card">
+          <div class="contact-icon">
+            <!-- phone SVG -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24 11.36 11.36 0 0 0 3.58.57 1 1 0 0 1 1 1v3.48a1 1 0 0 1-1 1A17.44 17.44 0 0 1 2.5 6a1 1 0 0 1 1-1H7a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.58 1 1 0 0 1-.25 1l-2.7 2.21Z"/></svg>
+          </div>
+          <h3>Phone&nbsp;(US)</h3>
+          <p><a href="tel:+13103671187">+1&nbsp;(310)&nbsp;367‑1187</a></p>
+        </article>
+
+        <!-- LinkedIn -->
+        <article class="contact-card">
+          <div class="contact-icon">
+            <!-- LinkedIn SVG -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 2.5 6a2.5 2.5 0 0 1 2.48-2.5ZM3 8h4v13H3V8Zm6.75 0H14v1.86h.06c.61-1.04 2.1-2.14 4.31-2.14 4.61 0 5.46 3.03 5.46 6.98V21h-4V14.5c0-1.55-.03-3.55-2.17-3.55-2.18 0-2.51 1.7-2.51 3.44V21h-4V8Z"/></svg>
+          </div>
+          <h3>LinkedIn</h3>
+          <p><a href="https://www.linkedin.com/in/giovanni-ambrosino-5aa21018/" target="_blank" rel="noopener">View Profile</a></p>
+        </article>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer"><div class="container">© <span id="year"></span> Giovanni Ambrosino MD</div></footer>
+  <!-- ▸ FOOTER  -------------------------------------------------------- -->
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Giovanni Ambrosino MD</div>
+  </footer>
+
   <script src="assets/script.js"></script>
 </body>
 </html>
