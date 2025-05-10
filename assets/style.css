@@ -32,6 +32,8 @@
   .hero-sub{font-size:1.2rem;margin-bottom:2rem}
   .btn-primary{background:var(--secondary);color:#000;padding:0.75rem 1.5rem;border-radius:var(--radius);text-decoration:none;font-weight:700;transition:var(--transition)}
   .btn-primary:hover{background:#ffc72c}
+  .btn-outline{display:inline-block;border:2px solid #fff;padding:0.5rem 1rem;border-radius:var(--radius);font-weight:600;margin-top:1rem;color:#fff;text-decoration:none;transition:var(--transition)}
+  .btn-outline:hover{background:rgba(255,255,255,.1)}
   
   /* Stats -------------------------------------------------- */
   .stats{background:#fff;padding:3rem 0}
@@ -57,6 +59,25 @@
   .profile{display:flex;flex-wrap:wrap;gap:2rem;align-items:flex-start;margin-bottom:2rem}
   .profile img{max-width:280px;width:100%;border-radius:var(--radius);box-shadow:0 2px 6px rgba(0,0,0,.1)}
   .profile-content{flex:1 1 250px}
+  
+  /* Publication Cards ------------------------------------- */
+  .pub-cards{display:flex;gap:1rem;overflow-x:auto;padding-bottom:1rem;margin-bottom:2rem;scroll-snap-type:x mandatory}
+  .pub-card{flex:0 0 320px;height:260px;border-radius:var(--radius);background-size:cover;background-position:center;position:relative;color:#fff;scroll-snap-align:center;box-shadow:0 4px 8px rgba(0,0,0,.15);transition:var(--transition)}
+  .pub-card:hover{transform:translateY(-4px)}
+  .pub-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.7) 100%);padding:1rem;display:flex;flex-direction:column;justify-content:flex-end;border-radius:var(--radius)}
+  .pub-overlay h3{font-size:1rem;font-weight:700;margin-bottom:0.25rem}
+  .pub-overlay p{font-size:0.875rem;opacity:0.9}
+  
+  /* Scholar BTN ------------------------------------------- */
+  .scholar-link{text-align:center;margin-top:2rem}
+  
+  /* Collaboration Logos ----------------------------------- */
+  .collabs{margin-top:2rem}
+  .logo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1.5rem;align-items:center;justify-items:center}
+  .logo-item{text-align:center}
+  .logo-item img{height:60px;max-width:120px;object-fit:contain;filter:grayscale(100%) brightness(80%);transition:var(--transition)}
+  .logo-item img:hover{filter:none;transform:scale(1.05)}
+  .logo-item span{display:block;margin-top:0.5rem;font-size:0.75rem;color:var(--dark)}
   
   /* Footer ------------------------------------------------- */
   .footer{background:#002752;color:#fff;text-align:center;padding:1rem 0;font-size:0.875rem;margin-top:3rem}
