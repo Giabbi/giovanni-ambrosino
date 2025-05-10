@@ -8,6 +8,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- ────────────────────────────────────────────
+       HERO 3‑D BACKGROUND – STYLE OVERRIDES        
+  ───────────────────────────────────────────── -->
+  <style>
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:none !important;
+      color:#000;
+      padding:6rem 0;
+      text-align:center;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(255,255,255,0.75);
+      z-index:1;
+      pointer-events:none;
+    }
+    #hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
+    .hero .container{position:relative;z-index:2;backdrop-filter:blur(2px);}
+  </style>
 </head>
 <body>
   <header class="navbar">
@@ -23,7 +47,10 @@
     </div>
   </header>
 
+  <!-- ───── HERO WITH DNA HELIX BACKDROP ───── -->
   <section class="hero">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
     <div class="container">
       <h1 class="hero-title">Transforming Liver Surgery & Transplantation Worldwide</h1>
       <p class="hero-sub">Professor Giovanni Ambrosino is an internationally renowned hepatobiliary surgeon, transplant innovator, and pioneer of robotic radiosurgery.</p>
@@ -45,6 +72,108 @@
       © <span id="year"></span> Giovanni Ambrosino, MD &nbsp;|&nbsp; All Rights Reserved
     </div>
   </footer>
+
+  <!-- EXISTING SCRIPTS -->
   <script src="assets/script.js"></script>
+
+  <!-- THREE.JS MULTI‑HELIX DNA BACKGROUND -->
+  <script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js';
+
+    if (window.innerWidth > 600) {
+      const canvas = document.getElementById('hero-canvas');
+
+      /* Scene & Camera */
+      const scene  = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(60, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+      camera.position.set(38, 20, 80); // pulled back for wider spacing
+      camera.lookAt(0, 0, 0);
+
+      /* Renderer */
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha:true, antialias:true });
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+
+      window.addEventListener('resize', () => {
+        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+      });
+
+      /* Shared Geometry & Materials */
+      const SPHERE_GEO = new THREE.SphereGeometry(0.6, 16, 12);
+      const CYL_GEO    = new THREE.CylinderGeometry(0.25, 0.25, 4, 8);
+
+      const MAT_A    = new THREE.MeshPhongMaterial({ color:0xff004d, transparent:true, opacity:0.6 });
+      const MAT_B    = new THREE.MeshPhongMaterial({ color:0x00eaff, transparent:true, opacity:0.6 });
+      const MAT_LINK = new THREE.MeshPhongMaterial({ color:0xffffff, transparent:true, opacity:0.25 });
+
+      /* DNA Parameters */
+      const RADIUS   = 8;
+      const TURNS    = 14;
+      const SEGMENTS = 24;
+      const HELICES  = 3;           // number of helices
+      const GAP_X    = 50;          // wider spacing between helices
+
+      /* Storage for animation */
+      const dnaGroups = [];
+
+      for (let h = 0; h < HELICES; h++) {
+        const dna = new THREE.Group();
+        dna.rotation.set(Math.PI/6, 0, Math.PI/8);
+        dna.position.x = (h - (HELICES-1)/2) * GAP_X; // -GAP_X, 0, +GAP_X
+        scene.add(dna);
+
+        const spheresA=[], spheresB=[], links=[], params=[];
+
+        for (let i = 0; i < TURNS * SEGMENTS; i++) {
+          const baseTheta = (i / SEGMENTS) * 2 * Math.PI;
+          const z = (i - (TURNS * SEGMENTS) / 2) * 0.9;
+          params.push({ baseTheta, z });
+
+          const s1 = new THREE.Mesh(SPHERE_GEO, MAT_A);
+          const s2 = new THREE.Mesh(SPHERE_GEO, MAT_B);
+          const link = new THREE.Mesh(CYL_GEO, MAT_LINK);
+
+          spheresA.push(s1); spheresB.push(s2); links.push(link);
+          dna.add(s1, s2, link);
+        }
+
+        dnaGroups.push({ spheresA, spheresB, links, params });
+      }
+
+      /* Lighting */
+      scene.add(new THREE.DirectionalLight(0xffffff, 0.5).position.set(0, 25, 35));
+      scene.add(new THREE.AmbientLight(0x4070ff, 0.25));
+
+      /* Animation */
+      let offset = 0;
+      const ROT_SPEED = 0.015; // slower twist speed
+
+      function animate() {
+        offset += ROT_SPEED;
+
+        dnaGroups.forEach(({ spheresA, spheresB, links, params }) => {
+          for (let i = 0; i < params.length; i++) {
+            const { baseTheta, z } = params[i];
+            const theta = baseTheta + offset;
+            const x = RADIUS * Math.cos(theta);
+            const y = RADIUS * Math.sin(theta);
+
+            spheresA[i].position.set(x, y, z);
+            spheresB[i].position.set(-x, -y, z);
+
+            links[i].position.set(0, 0, z);
+            links[i].lookAt(spheresA[i].position);
+            links[i].rotation.z = theta + Math.PI/2;
+          }
+        });
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+  </script>
 </body>
 </html>
